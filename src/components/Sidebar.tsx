@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Github, Linkedin, Mail, GraduationCap, Award, Code, User, Briefcase, Building } from 'lucide-react';
+import logo from '../public/images/profil.png'; // Tell webpack this JS file uses this image
 
 type SidebarProps = {
   isOpen: boolean;
@@ -26,7 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         {/* Profile Section */}
         <div className="text-center mb-8">
           <img
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400&auto=format&fit=crop&q=80"
+            src={logo}
             alt="Amir Maalaoui - Software Development Engineer"
             className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-gray-700"
           />
@@ -59,7 +60,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         {/* Social Links */}
         <div className="flex justify-center gap-4 pt-4 border-t border-gray-700">
           <a
-            href="https://github.com"
+            href="https://github.com/Amir-2018"
             className="hover:text-gray-300"
             target="_blank"
             rel="noopener noreferrer"
@@ -68,7 +69,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             <Github size={24} aria-hidden="true" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/amir-maalaoui-12b67020a/"
             className="hover:text-gray-300"
             target="_blank"
             rel="noopener noreferrer"
