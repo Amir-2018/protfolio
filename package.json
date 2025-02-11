@@ -1,20 +1,19 @@
 {
 
+  "homepage": "https://Amir-2018.github.io/portfolio",
 
   "name": "vite-react-typescript-starter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview", 
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build" ,
-    "homepage": "https://Amir-2018.github.io/portfolio"
-
-  },
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist",
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint .",
+  "preview": "vite preview"
+},
   "dependencies": {
     "aos": "^2.3.4",
     "framer-motion": "^12.4.2",
