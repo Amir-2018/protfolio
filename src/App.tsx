@@ -24,7 +24,11 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {/* Sidebar */}
-      <div className="fixed top-0 left-0 z-50 h-full">
+      <div
+        className={`fixed top-0 left-0 z-50 h-full bg-white w-64 transition-all duration-300 ${
+          isSidebarOpen ? 'ml-0' : '-ml-64'
+        } lg:ml-0 lg:relative lg:block`}
+      >
         <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
       </div>
 
@@ -37,7 +41,7 @@ function App() {
       </button>
 
       {/* Main Content */}
-      <main className="flex-1 ml-64 p-8 lg:p-12">
+      <main className="flex-1  p-8 lg:p-12">
         <About aboutProps={aboutInfo} />
         <Experience experiences={experiences} />
         <Skills skills={skillsList} />
