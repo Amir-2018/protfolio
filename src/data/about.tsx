@@ -1,4 +1,4 @@
 export const aboutInfo = {
-    description : "I'm a passionate Software Development Engineer with expertise in building scalable web applications. I love solving complex problems and creating elegant solutions that make a difference." ,
+    description :  "I’m a passionate and driven Software Development Engineer, specializing in the creation of scalable web and mobile applications. With a keen eye for detail and a love for tackling complex challenges, I’m dedicated to crafting solutions that not only solve problems but also improve user experiences and drive results. I thrive on bringing ideas to life through collaboration with talented teams, and I’m always eager to learn and adapt to new technologies and approaches. My goal is to create elegant, efficient, and sustainable software that makes a lasting impact.", 
     image : "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=500&auto=format&fit=crop&q=80" 
 }
