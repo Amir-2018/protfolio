@@ -1,4 +1,6 @@
 {
+
+
   "name": "vite-react-typescript-starter",
   "private": true,
   "version": "0.0.0",
@@ -7,7 +9,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview", 
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build" ,
+    "homepage": "https://Amir-2018.github.io/portfolio"
+
   },
   "dependencies": {
     "aos": "^2.3.4",
