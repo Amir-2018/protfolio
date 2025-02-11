@@ -1,3 +1,3 @@
 export const skillsList = [
-    "JavaScript", "TypeScript", "React", "Node.js", "Python", "SQL", "AWS", "Docker", "Git"
+    "Html", "Css", "Tailwind", "Reactjs", "ExpressJs", "NestJs", "Laravel", "Django", "Rest Api", "Flutter", "PostgreQl", "MongoDB","Figma","Git","Github","Jira","Scrum"
   ];
