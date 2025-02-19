@@ -1,7 +1,6 @@
 import React from 'react';
-import { X, Github, Linkedin, Mail, GraduationCap, Award, Code, User, Briefcase, Building } from 'lucide-react';
-import logo from '../public/images/profil.png'; // Tell webpack this JS file uses this image
-
+import { X, Github, Linkedin, Mail, GraduationCap, Award, Code, User, Briefcase, Building, File } from 'lucide-react';
+import cvImage from '../public/images/profil.jpg'
 type SidebarProps = {
   isOpen: boolean;
   onClose: () => void; // Add a close handler for better UX
@@ -27,7 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         {/* Profile Section */}
         <div className="text-center mb-8">
           <img
-            src={logo}
+            src={cvImage}
             alt="Amir Maalaoui - Software Development Engineer"
             className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-gray-700"
           />
@@ -54,6 +53,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </a>
           <a href="#certificates" className="flex items-center gap-2 px-4 py-2 rounded hover:bg-gray-800 transition-colors">
             <Award size={20} aria-hidden="true" /> Certificates
+          </a>
+
+          <a href="#cv" className="flex items-center gap-2 px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+            <File size={20} aria-hidden="true" /> Cv
           </a>
         </nav>
 

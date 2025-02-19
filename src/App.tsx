@@ -13,6 +13,7 @@ import { educationInfo } from './data/educations';
 import Certificates from './components/Certificates';
 import { certificatesList } from './data/certificatesList';
 import { aboutInfo } from './data/about';
+import { Cv } from './components/Cv';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -48,6 +49,7 @@ function App() {
         <Projects projects={projects} />
         <Education education={educationInfo} />
         <Certificates certificates={certificatesList} />
+        <Cv/>
       </main>
     </div>
   );
