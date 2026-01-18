@@ -4,4 +4,6 @@ export interface ProjectProps {
     description: string;
     image: string;
     link: string;
+    github?: string;
+    tech?: string[];
   }
