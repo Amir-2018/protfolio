@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { X, Github, Linkedin, Mail, GraduationCap, Award, Code, User, Briefcase, Building } from 'lucide-react';
 import cvImage from '../public/images/profil.jpg'
@@ -11,6 +11,8 @@ type SidebarProps = {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -59,9 +61,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           {/* Profile Section */}
           <motion.div variants={itemVariants} className="text-center mb-8">
             <motion.div
-              className="relative w-32 h-32 mx-auto mb-4"
+              className="relative w-32 h-32 mx-auto mb-4 cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
+              onClick={() => {
+                setSelectedImage(cvImage);
+                setIsModalOpen(true);
+              }}
             >
               {/* Animated gradient border */}
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full opacity-75 blur animate-pulse" />
@@ -70,6 +76,20 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 alt="Amir Maalaoui - Software Development Engineer"
                 className="relative w-full h-full rounded-full object-cover border-4 border-white shadow-lg"
               />
+
+              {/* Click indicator */}
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center bg-black/0 hover:bg-black/10 transition-colors duration-300 rounded-full"
+                whileHover={{ scale: 1.02 }}
+              >
+                <motion.div
+                  className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300"
+                  initial={{ y: 10 }}
+                  whileHover={{ y: 0 }}
+                >
+                  <span className="text-xs font-medium text-gray-700">Click to enlarge</span>
+                </motion.div>
+              </motion.div>
             </motion.div>
             <motion.h1
               className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2"
@@ -157,6 +177,47 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       {/* Floating decorative elements */}
       <div className="absolute top-20 right-8 w-3 h-3 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-30 animate-pulse" />
       <div className="absolute bottom-32 left-8 w-2 h-2 bg-gradient-to-br from-pink-400 to-orange-500 rounded-full opacity-40 animate-pulse" style={{ animationDelay: '1s' }} />
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {isModalOpen && selectedImage && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsModalOpen(false)}
+          >
+            <motion.div
+              className="relative max-w-4xl max-h-[90vh] p-4"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.button
+                className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setIsModalOpen(false)}
+              >
+                <X size={20} />
+              </motion.button>
+
+              <motion.img
+                src={selectedImage}
+                alt="Enlarged view"
+                className="w-full h-full object-contain rounded-2xl shadow-2xl"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ delay: 0.1 }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </aside>
   );
 };
