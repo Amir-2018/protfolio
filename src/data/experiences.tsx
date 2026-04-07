@@ -1,8 +1,11 @@
+import { Satellite, Smartphone, Building, Utensils, Cpu } from 'lucide-react';
+
 const experiences = [
   {
     title: "Software Engineer",
     company: "NGI GPS",
-    companyLogo: "/images/ngi.png",
+    companyIcon: Satellite,
+    iconColor: "from-blue-500 to-indigo-600",
     period: "February 2025 – Present | Tunis, Tunisia",
     tasks: [
       "Developed and maintained fleet management solutions using GPS technology",
@@ -17,7 +20,8 @@ const experiences = [
   {
     title: "Internship - Mobile Developer",
     company: "Actia Engineering Services",
-    companyLogo: "https://lab-engineering.actia.tn/wp-content/uploads/2021/02/ACTIA_3coul_RVB.png",
+    companyIcon: Smartphone,
+    iconColor: "from-green-500 to-emerald-600",
     period: "13/02/2024 – 01/07/2024 | Sfax, Tunisia",
     tasks: [
       "Developed a mobile application for Chotrana Smart Village",
@@ -30,7 +34,8 @@ const experiences = [
   {
     title: "Internship - Web Developer",
     company: "National Office of Land Property",
-companyLogo: "/images/onpf.jpeg",
+    companyIcon: Building,
+    iconColor: "from-purple-500 to-violet-600",
     period: "21/06/2023 – 21/08/2023 | Tunis, Tunisia",
     tasks: [
       "Developed a web application for electronic document management",
@@ -40,7 +45,8 @@ companyLogo: "/images/onpf.jpeg",
   {
     title: "Internship - Back-End Developer",
     company: "Quetratech",
-    companyLogo: "/images/quetratech-logo.jpeg",
+    companyIcon: Utensils,
+    iconColor: "from-orange-500 to-red-600",
     period: "15/07/2022 – 15/08/2022 | Mahdia, Tunisia",
     tasks: [
       "Developed the back-end of an application for managing establishments like cafes and restaurants",
@@ -52,7 +58,8 @@ companyLogo: "/images/onpf.jpeg",
   {
     title: "Internship - Software Developer",
     company: "Fablab, Mahdia",
-    companyLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiCWWk3ZQqJtQPkDwUAU6k5rb5YHh8FIla6A&s",
+    companyIcon: Cpu,
+    iconColor: "from-teal-500 to-cyan-600",
     period: "15/04/2021 – 21/07/2021 | Mahdia, Tunisia",
     tasks: [
       "Developed software for an educational robot to help children learn programming",

@@ -5,11 +5,11 @@ const AnimatedBackground: React.FC = () => {
   // Enhanced GPS tracking points with routes
   const trackingPoints = [
     { x: 15, y: 25, delay: 0, color: 'emerald' },
-    { x: 35, y: 45, delay: 1, color: 'cyan' },
-    { x: 65, y: 30, delay: 2, color: 'blue' },
-    { x: 80, y: 60, delay: 3, color: 'purple' },
-    { x: 45, y: 70, delay: 4, color: 'pink' },
-    { x: 20, y: 55, delay: 5, color: 'indigo' },
+    { x: 35, y: 45, delay: 1, color: 'orange' },
+    { x: 65, y: 30, delay: 2, color: 'amber' },
+    { x: 80, y: 60, delay: 3, color: 'emerald' },
+    { x: 45, y: 70, delay: 4, color: 'orange' },
+    { x: 20, y: 55, delay: 5, color: 'amber' },
   ];
 
   // Routes connecting points
@@ -25,7 +25,7 @@ const AnimatedBackground: React.FC = () => {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
       {/* Enhanced Map Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-emerald-900 to-orange-900">
         {/* Animated Grid Pattern */}
         <div className="absolute inset-0 opacity-30">
           <svg width="100%" height="100%" viewBox="0 0 100 100" className="w-full h-full">
@@ -34,7 +34,7 @@ const AnimatedBackground: React.FC = () => {
                 <motion.path
                   d="M 20 0 L 0 0 0 20"
                   fill="none"
-                  stroke="rgba(59, 130, 246, 0.3)"
+                  stroke="rgba(16, 185, 129, 0.3)"
                   strokeWidth="1"
                   animate={{
                     strokeOpacity: [0.3, 0.6, 0.3],
@@ -47,9 +47,9 @@ const AnimatedBackground: React.FC = () => {
                 />
               </pattern>
               <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(99, 102, 241, 0.1)" />
-                <stop offset="50%" stopColor="rgba(139, 92, 246, 0.1)" />
-                <stop offset="100%" stopColor="rgba(236, 72, 153, 0.1)" />
+                <stop offset="0%" stopColor="rgba(16, 185, 129, 0.1)" />
+                <stop offset="50%" stopColor="rgba(249, 115, 22, 0.1)" />
+                <stop offset="100%" stopColor="rgba(245, 158, 11, 0.1)" />
               </linearGradient>
             </defs>
             <rect width="100%" height="100%" fill="url(#animatedGrid)" />
@@ -73,7 +73,7 @@ const AnimatedBackground: React.FC = () => {
             <motion.path
               d="M20,20 Q25,15 30,20 Q35,25 40,20 Q45,15 50,20 Q55,25 60,20 Q65,15 70,20 Q75,25 80,20"
               fill="none"
-              stroke="rgba(34, 197, 94, 0.4)"
+              stroke="rgba(16, 185, 129, 0.4)"
               strokeWidth="1"
               animate={{
                 pathLength: [0, 1],
@@ -88,7 +88,7 @@ const AnimatedBackground: React.FC = () => {
             <motion.path
               d="M15,40 Q20,35 25,40 Q30,45 35,40 Q40,35 45,40 Q50,45 55,40"
               fill="none"
-              stroke="rgba(6, 182, 212, 0.4)"
+              stroke="rgba(249, 115, 22, 0.4)"
               strokeWidth="1"
               animate={{
                 pathLength: [0, 1],
@@ -118,7 +118,7 @@ const AnimatedBackground: React.FC = () => {
           }}
         >
           <motion.div
-            className="absolute w-full h-0.5 bg-gradient-to-r from-transparent via-green-400 to-transparent"
+            className="absolute w-full h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent"
             animate={{
               backgroundPosition: ['0% 50%', '100% 50%'],
               opacity: [0.3, 0.8, 0.3],
@@ -135,7 +135,7 @@ const AnimatedBackground: React.FC = () => {
           />
           {/* Traveling Dot */}
           <motion.div
-            className="absolute w-2 h-2 bg-yellow-400 rounded-full shadow-lg"
+            className="absolute w-2 h-2 bg-amber-400 rounded-full shadow-lg"
             animate={{
               x: ['0%', '100%'],
               y: ['0%', '100%'],
@@ -148,7 +148,7 @@ const AnimatedBackground: React.FC = () => {
             }}
           >
             <motion.div
-              className="absolute inset-0 border border-yellow-300 rounded-full"
+              className="absolute inset-0 border border-amber-300 rounded-full"
               animate={{
                 scale: [1, 2, 1],
                 opacity: [1, 0, 1],

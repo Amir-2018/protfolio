@@ -36,19 +36,19 @@ const Education: React.FC<EducationProps> = ({ education }) => {
         {/* Header */}
         <motion.div variants={itemVariants} className="text-center mb-12">
           <motion.h2
-            className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+            className="text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-600 via-orange-600 to-amber-600 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             Education
           </motion.h2>
-          <div className="w-24 h-1 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full" />
+          <div className="w-24 h-1 mx-auto bg-gradient-to-r from-emerald-500 via-orange-500 to-amber-500 rounded-full" />
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 hidden md:block" />
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-orange-500 to-amber-500 hidden md:block" />
 
           <div className="space-y-8">
             {education.map((item, index) => {
@@ -61,7 +61,7 @@ const Education: React.FC<EducationProps> = ({ education }) => {
                 >
                   {/* Timeline dot */}
                   <motion.div
-                    className="relative z-10 flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg"
+                    className="relative z-10 flex-shrink-0 w-16 h-16 bg-gradient-to-br from-emerald-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -75,8 +75,8 @@ const Education: React.FC<EducationProps> = ({ education }) => {
                     transition={{ duration: 0.3 }}
                   >
                     {/* Decorative gradient blobs */}
-                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
-                    <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-emerald-400/20 to-orange-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+                    <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
 
                     <div className="relative z-10">
                       <motion.h3
@@ -90,20 +90,20 @@ const Education: React.FC<EducationProps> = ({ education }) => {
 
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
                         <div className="flex items-center gap-2 text-gray-600">
-                          <MapPin size={16} className="text-purple-500" />
+                          <MapPin size={16} className="text-orange-500" />
                           <span className="text-sm">{item.institution}</span>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-2 text-gray-500">
-                        <Calendar size={16} className="text-blue-500" />
+                        <Calendar size={16} className="text-emerald-500" />
                         <span className="text-sm">{item.period}</span>
                       </div>
 
                       {/* Achievement badge for recent degree */}
                       {index === 0 && (
                         <motion.div
-                          className="mt-4 inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1 rounded-full text-xs font-semibold"
+                          className="mt-4 inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
                           transition={{ delay: 0.5, type: "spring" }}

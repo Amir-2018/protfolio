@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronDown, Settings, Home as HomeIcon } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './i18n';
@@ -35,10 +35,12 @@ const Home: React.FC = () => {
 
   // Load data from localStorage on mount
   useEffect(() => {
+    // Clear old skills data to force use of new skills
+    localStorage.removeItem('portfolio-skills');
+    
     const savedAbout = localStorage.getItem('portfolio-about');
     const savedExperience = localStorage.getItem('portfolio-experience');
     const savedEducation = localStorage.getItem('portfolio-education');
-    const savedSkills = localStorage.getItem('portfolio-skills');
     const savedCertificates = localStorage.getItem('portfolio-certificates');
 
     if (savedAbout) {
@@ -50,9 +52,9 @@ const Home: React.FC = () => {
     if (savedEducation) {
       setCurrentEducationData(JSON.parse(savedEducation));
     }
-    if (savedSkills) {
-      setCurrentSkillsData(JSON.parse(savedSkills));
-    }
+    // Use new skills data from skillsList - don't load from localStorage
+    setCurrentSkillsData(skillsList);
+    
     if (savedCertificates) {
       setCurrentCertificatesData(JSON.parse(savedCertificates));
     }
@@ -83,29 +85,7 @@ const Home: React.FC = () => {
           {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Navigation Links - Top Left */}
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 flex gap-4">
-          <Link to="/">
-            <motion.button
-              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <HomeIcon size={18} />
-              Home
-            </motion.button>
-          </Link>
-          <Link to="/admin">
-            <motion.button
-              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Settings size={18} />
-              Admin
-            </motion.button>
-          </Link>
-        </div>
+
 
         {/* Main Content */}
         <main className="flex-1 p-8 lg:p-12">
@@ -136,10 +116,12 @@ const AdminRoute: React.FC = () => {
 
   // Load data from localStorage on mount
   useEffect(() => {
+    // Clear old skills data to force use of new skills
+    localStorage.removeItem('portfolio-skills');
+    
     const savedAbout = localStorage.getItem('portfolio-about');
     const savedExperience = localStorage.getItem('portfolio-experience');
     const savedEducation = localStorage.getItem('portfolio-education');
-    const savedSkills = localStorage.getItem('portfolio-skills');
     const savedCertificates = localStorage.getItem('portfolio-certificates');
 
     if (savedAbout) {
@@ -151,9 +133,9 @@ const AdminRoute: React.FC = () => {
     if (savedEducation) {
       setCurrentEducationData(JSON.parse(savedEducation));
     }
-    if (savedSkills) {
-      setCurrentSkillsData(JSON.parse(savedSkills));
-    }
+    // Use new skills data from skillsList - don't load from localStorage
+    setCurrentSkillsData(skillsList);
+    
     if (savedCertificates) {
       setCurrentCertificatesData(JSON.parse(savedCertificates));
     }

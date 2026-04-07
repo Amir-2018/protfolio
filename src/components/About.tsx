@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Props } from "../models/about-interface";
 import { Mail, MapPin, Calendar, Github, Linkedin, Download, Phone, MessageCircle, X, Send, User, AtSign } from "lucide-react";
 import emailjs from '@emailjs/browser';
+import cvFile from '../public/files/Amir_Maalaoui_cv.pdf';
 
 const About: React.FC<Props> = ({ aboutProps }) => {
   const { t } = useTranslation();
@@ -91,14 +92,14 @@ const About: React.FC<Props> = ({ aboutProps }) => {
         {/* Header */}
         <motion.div variants={itemVariants} className="text-center mb-10">
           <motion.h2
-            className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+            className="text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-600 via-orange-600 to-amber-600 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             {t('aboutMe')}
           </motion.h2>
-          <div className="w-24 h-1 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full" />
+          <div className="w-24 h-1 mx-auto bg-gradient-to-r from-emerald-500 via-orange-500 to-amber-500 rounded-full" />
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-8">
@@ -106,7 +107,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
           <motion.div variants={itemVariants} className="lg:w-2/5">
             <div className="relative group">
               {/* Animated gradient border */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl opacity-75 group-hover:opacity-100 blur transition duration-500 group-hover:duration-200 animate-pulse" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 via-orange-600 to-amber-600 rounded-3xl opacity-75 group-hover:opacity-100 blur transition duration-500 group-hover:duration-200 animate-pulse" />
               
               <div className="relative bg-white rounded-3xl p-6 shadow-2xl">
                 {/* Image container with floating animation */}
@@ -157,7 +158,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                     href="https://github.com/Amir-2018"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="w-12 h-12 rounded-full bg-gradient-to-br from-slate-600 to-slate-800 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -167,7 +168,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                     href="https://www.linkedin.com/in/amir-maalaoui-12b67020a/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -175,7 +176,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                   </motion.a>
                   <motion.button
                     onClick={() => setPhoneBordered(true)}
-                    className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -183,7 +184,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                   </motion.button>
                   <motion.button
                     onClick={() => setIsContactModalOpen(true)}
-                    className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -194,26 +195,26 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                 {/* Contact Info */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-gray-600">
-                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
-                      <Mail size={18} className="text-blue-500" />
+                    <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center">
+                      <Mail size={18} className="text-emerald-500" />
                     </div>
                     <span className="text-sm">amir.maalaoui@ngi.com</span>
                   </div>
-                  <div className={`flex items-center gap-3 text-gray-600 ${phoneBordered ? 'border-2 border-green-500 rounded-lg p-2 bg-green-50' : ''}`}>
-                    <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center">
-                      <Phone size={18} className="text-green-500" />
+                  <div className={`flex items-center gap-3 text-gray-600 ${phoneBordered ? 'border-2 border-orange-500 rounded-lg p-2 bg-orange-50' : ''}`}>
+                    <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center">
+                      <Phone size={18} className="text-orange-500" />
                     </div>
                     <span className="text-sm">+216 93379344</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-600">
-                    <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center">
-                      <MapPin size={18} className="text-purple-500" />
+                    <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center">
+                      <MapPin size={18} className="text-amber-500" />
                     </div>
                     <span className="text-sm">Bardo, Tunisia</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-600">
-                    <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center">
-                      <Calendar size={18} className="text-pink-500" />
+                    <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center">
+                      <Calendar size={18} className="text-emerald-500" />
                     </div>
                     <span className="text-sm">Available for hire</span>
                   </div>
@@ -221,13 +222,13 @@ const About: React.FC<Props> = ({ aboutProps }) => {
 
                 {/* Download CV Button */}
                 <motion.button
-                  className="w-full mt-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300 flex items-center justify-center gap-2"
+className="w-full mt-6 bg-[#333333] hover:bg-[#444444] text-white py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300 flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
                     // Create a link to download the CV
                     const link = document.createElement('a');
-                    link.href = '/files/amir-maalaoui-cv.pdf';
+                    link.href = cvFile;
                     link.download = 'Amir_Maalaoui_CV.pdf';
                     document.body.appendChild(link);
                     link.click();
@@ -246,8 +247,8 @@ const About: React.FC<Props> = ({ aboutProps }) => {
           <motion.div variants={itemVariants} className="lg:w-3/5">
             <div className="bg-white rounded-3xl shadow-2xl p-8 relative overflow-hidden">
               {/* Decorative gradient blobs */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
-              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full blur-3xl" />
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br from-emerald-400/20 to-orange-400/20 rounded-full blur-3xl" />
+              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-full blur-3xl" />
 
               <div className="relative z-10">
                 <motion.h3
@@ -256,7 +257,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  {t('hello')} <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Amir</span>! 👋
+                  {t('hello')} <span className="bg-gradient-to-r from-emerald-600 via-orange-600 to-amber-600 bg-clip-text text-transparent">Amir</span>! 👋
                 </motion.h3>
 
                 <p className="text-gray-600 leading-relaxed text-lg text-justify mb-6">
@@ -266,10 +267,10 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                 {/* Stats Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                   {[
-                    { value: "3+", labelKey: "internships", color: "from-blue-500 to-cyan-500" },
-                    { value: "10+", labelKey: "projectsStats", color: "from-purple-500 to-pink-500" },
-                    { value: "15+", labelKey: "technologies", color: "from-orange-500 to-red-500" },
-                    { value: "100%", labelKey: "dedication", color: "from-green-500 to-emerald-500" }
+                    { value: "3+", labelKey: "internships", color: "from-emerald-500 to-emerald-600" },
+                    { value: "4+", labelKey: "projectsStats", color: "from-orange-500 to-orange-600" },
+                    { value: "15+", labelKey: "technologies", color: "from-amber-500 to-amber-600" },
+                    { value: "100%", labelKey: "dedication", color: "from-emerald-500 to-orange-500" }
                   ].map((stat, index) => (
                     <motion.div
                       key={index}
@@ -304,7 +305,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                     ].map((item, index) => (
                       <motion.div
                         key={index}
-                        className="flex gap-4 p-4 rounded-xl bg-gray-50 hover:bg-gradient-to-br hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group"
+                        className="flex gap-4 p-4 rounded-xl bg-gray-50 hover:bg-gradient-to-br hover:from-emerald-50 hover:to-orange-50 transition-all duration-300 group"
                         whileHover={{ scale: 1.02 }}
                       >
                         <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
@@ -388,7 +389,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6 text-white">
+              <div className="relative bg-gradient-to-r from-emerald-600 via-orange-600 to-amber-600 p-6 text-white">
                 <motion.button
                   className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                   whileHover={{ scale: 1.1 }}
@@ -480,7 +481,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                     value={contactForm.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
                     placeholder="What's this about?"
                   />
                 </motion.div>
@@ -500,7 +501,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 resize-none"
                     placeholder="Tell me about your project or just say hello!"
                   />
                 </motion.div>
@@ -515,7 +516,7 @@ const About: React.FC<Props> = ({ aboutProps }) => {
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-8 py-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-8 py-3 bg-gradient-to-r from-emerald-600 via-orange-600 to-amber-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

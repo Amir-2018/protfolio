@@ -13,7 +13,7 @@ const Projects: React.FC<{ projects: ProjectProps[] }> = ({ projects }) => {
         transition={{ duration: 0.6 }}
       >
         <motion.h2
-          className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent"
+          className="text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-600 via-orange-600 to-amber-600 bg-clip-text text-transparent"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -22,7 +22,7 @@ const Projects: React.FC<{ projects: ProjectProps[] }> = ({ projects }) => {
           Projects
         </motion.h2>
         <motion.div
-          className="w-24 h-1 mx-auto bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-full"
+          className="w-24 h-1 mx-auto bg-gradient-to-r from-emerald-500 via-orange-500 to-amber-500 rounded-full"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
@@ -82,7 +82,7 @@ const Projects: React.FC<{ projects: ProjectProps[] }> = ({ projects }) => {
 
             {/* Content */}
             <div className="p-6">
-              <h3 className="font-bold text-xl mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+              <h3 className="font-bold text-xl mb-3 text-gray-900 group-hover:text-emerald-600 transition-colors">
                 {project.title}
               </h3>
               <p className="text-gray-600 text-sm mb-4 line-clamp-3">
@@ -95,7 +95,7 @@ const Projects: React.FC<{ projects: ProjectProps[] }> = ({ projects }) => {
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 rounded-full border border-blue-100"
+                      className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-emerald-50 to-orange-50 text-emerald-700 rounded-full border border-emerald-100"
                     >
                       {tech}
                     </span>
@@ -105,7 +105,7 @@ const Projects: React.FC<{ projects: ProjectProps[] }> = ({ projects }) => {
             </div>
 
             {/* Gradient accent bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-orange-500 to-amber-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
           </motion.div>
         ))}
       </div>

@@ -16,7 +16,7 @@ const Experience: React.FC<{ experiences: ExperienceProps[] }> = ({ experiences 
         transition={{ duration: 0.6 }}
       >
         <motion.h2
-          className="text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent"
+          className="text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-600 via-orange-600 to-amber-600 bg-clip-text text-transparent"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -25,7 +25,7 @@ const Experience: React.FC<{ experiences: ExperienceProps[] }> = ({ experiences 
           {t("professionalExperience")}
         </motion.h2>
         <motion.div
-          className="w-24 h-1 mx-auto bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-full"
+          className="w-24 h-1 mx-auto bg-gradient-to-r from-emerald-500 via-orange-500 to-amber-500 rounded-full"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
@@ -42,7 +42,7 @@ const Experience: React.FC<{ experiences: ExperienceProps[] }> = ({ experiences 
       </motion.div>
       <div className="relative">
         {/* Timeline line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 hidden md:block" />
+        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-orange-500 to-amber-500 hidden md:block" />
 
         <div className="space-y-8">
           {experiences.map((exp, index) => (
@@ -54,19 +54,17 @@ const Experience: React.FC<{ experiences: ExperienceProps[] }> = ({ experiences 
               className="relative flex gap-6 md:gap-8"
             >
               {/* Timeline dot */}
-              <div className="absolute left-8 top-6 w-4 h-4 bg-white border-4 border-blue-500 rounded-full transform -translate-x-1/2 hidden md:block z-10" />
+              <div className="absolute left-8 top-6 w-4 h-4 bg-white border-4 border-emerald-500 rounded-full transform -translate-x-1/2 hidden md:block z-10" />
               
-              {/* Company Logo or Icon wrapper */}
+              {/* Company Icon wrapper */}
               <div className="flex-shrink-0 w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg z-10 border-2 border-gray-100 overflow-hidden group-hover:border-blue-300 transition-colors">
-                {exp.companyLogo ? (
-                  <img
-                    src={exp.companyLogo}
-                    alt={exp.company}
-                    className="w-full h-full object-contain p-2 group-hover:scale-110 transition-transform duration-300"
-                  />
+                {exp.companyIcon ? (
+                  <div className={`w-full h-full bg-gradient-to-br ${exp.iconColor} flex items-center justify-center rounded-xl`}>
+                    <exp.companyIcon size={32} className="text-white" />
+                  </div>
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                    <Building2 size={28} className="text-white" />
+                  <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center rounded-xl">
+                    <Building2 size={32} className="text-white" />
                   </div>
                 )}
               </div>
@@ -78,19 +76,19 @@ const Experience: React.FC<{ experiences: ExperienceProps[] }> = ({ experiences 
                     <h3 className="text-xl font-bold text-gray-900 mb-1">
                       {exp.title}
                     </h3>
-                    <p className="text-lg font-semibold text-blue-600">
+                    <p className="text-lg font-semibold text-emerald-600">
                       {exp.company}
                     </p>
                   </div>
                   
                   <div className="flex flex-col md:items-end gap-2 text-sm text-gray-500">
                     <div className="flex items-center gap-2">
-                      <Calendar size={14} className="text-purple-500" />
+                      <Calendar size={14} className="text-orange-500" />
                       <span>{exp.period.split('|')[0].trim()}</span>
                     </div>
                     {exp.period.includes('|') && (
                       <div className="flex items-center gap-2">
-                        <MapPin size={14} className="text-pink-500" />
+                        <MapPin size={14} className="text-amber-500" />
                         <span>{exp.period.split('|')[1].trim()}</span>
                       </div>
                     )}
@@ -100,7 +98,7 @@ const Experience: React.FC<{ experiences: ExperienceProps[] }> = ({ experiences 
                 <ul className="space-y-3">
                   {exp.tasks.map((task, i) => (
                     <li key={i} className="flex items-start gap-3 text-gray-600">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2" />
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-gradient-to-r from-emerald-500 to-orange-500 rounded-full mt-2" />
                       <span className="text-sm leading-relaxed">{task}</span>
                     </li>
                   ))}

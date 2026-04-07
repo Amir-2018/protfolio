@@ -22,18 +22,21 @@ const getSkillIcon = (skillName: string) => {
   if (name.includes('css')) return <Code size={32} />;
   if (name.includes('tailwind')) return <Zap size={32} />;
   if (name.includes('react')) return <Monitor size={32} />;
+  if (name.includes('angular')) return <Star size={32} />;
+  if (name.includes('next')) return <Layers size={32} />;
   if (name.includes('express')) return <Server size={32} />;
-  if (name.includes('nest')) return <Server size={32} />;
   if (name.includes('laravel')) return <Server size={32} />;
   if (name.includes('django')) return <Server size={32} />;
   if (name.includes('rest api')) return <Terminal size={32} />;
+  if (name.includes('react native')) return <Smartphone size={32} />;
   if (name.includes('flutter')) return <Smartphone size={32} />;
+  if (name.includes('mysql')) return <Database size={32} />;
   if (name.includes('postgresql') || name.includes('postgre')) return <Database size={32} />;
   if (name.includes('mongodb') || name.includes('mongo')) return <Database size={32} />;
-  if (name.includes('figma')) return <Palette size={32} />;
-  if (name.includes('git') || name.includes('github')) return <GitBranch size={32} />;
+  if (name.includes('git') && !name.includes('hub') && !name.includes('lab')) return <GitBranch size={32} />;
+  if (name.includes('github')) return <GitBranch size={32} />;
+  if (name.includes('gitlab')) return <GitBranch size={32} />;
   if (name.includes('jira')) return <Layers size={32} />;
-  if (name.includes('scrum')) return <Trophy size={32} />;
 
   return <Code size={32} />;
 };
@@ -46,6 +49,8 @@ const getCategoryColor = (category: string) => {
       return 'from-purple-500 via-pink-400 to-rose-400';
     case 'Database':
       return 'from-emerald-500 via-green-400 to-lime-400';
+    case 'Mobile':
+      return 'from-indigo-500 via-violet-400 to-purple-400';
     case 'Tools':
       return 'from-amber-500 via-orange-400 to-red-400';
     default:
@@ -61,6 +66,8 @@ const getCategoryIcon = (category: string) => {
       return <Server size={24} className="text-white" />;
     case 'Database':
       return <Database size={24} className="text-white" />;
+    case 'Mobile':
+      return <Smartphone size={24} className="text-white" />;
     case 'Tools':
       return <Award size={24} className="text-white" />;
     default:
@@ -73,17 +80,18 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
     'Frontend': [],
     'Backend': [],
     'Database': [],
+    'Mobile': [],
     'Tools': []
   };
 
   const skillCategories: Record<string, string> = {
     'html': 'Frontend', 'css': 'Frontend', 'tailwind': 'Frontend',
-    'reactjs': 'Frontend', 'figma': 'Frontend',
-    'expressjs': 'Backend', 'nestjs': 'Backend', 'laravel': 'Backend',
+    'react': 'Frontend', 'angular': 'Frontend', 'next.js': 'Frontend',
+    'express': 'Backend', 'laravel': 'Backend',
     'django': 'Backend', 'rest api': 'Backend',
-    'postgresql': 'Database', 'mongodb': 'Database',
-    'git': 'Tools', 'github': 'Tools', 'jira': 'Tools', 'scrum': 'Tools',
-    'flutter': 'Tools'
+    'mysql': 'Database', 'postgresql': 'Database', 'mongodb': 'Database',
+    'react native': 'Mobile', 'flutter': 'Mobile',
+    'git': 'Tools', 'github': 'Tools', 'gitlab': 'Tools', 'jira': 'Tools'
   };
 
   skills.forEach((skill) => {
@@ -152,96 +160,94 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {Object.entries(categorizedSkills).map(([category, categorySkills], categoryIndex) => (
             categorySkills.length > 0 && (
               <motion.div
                 key={category}
                 variants={itemVariants}
                 className="group relative"
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
               >
-                {/* Animated gradient border */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl opacity-75 group-hover:opacity-100 blur transition duration-500" />
-
-                {/* Inner card */}
-                <div className="relative bg-white rounded-3xl p-8 h-full shadow-2xl overflow-hidden">
-                  {/* Floating decorative elements */}
-                  <div className="absolute top-4 right-4 w-3 h-3 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-60 animate-pulse" />
-                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-gradient-to-br from-pink-400 to-orange-500 rounded-full opacity-40 animate-pulse" style={{ animationDelay: '1s' }} />
+                {/* Main Card */}
+                <div className="relative bg-white rounded-3xl p-6 h-full shadow-xl border border-gray-100 overflow-hidden group-hover:shadow-2xl transition-all duration-500">
+                  
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 transform translate-x-16 -translate-y-16" />
+                    <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-gradient-to-br from-pink-400 to-orange-500 transform -translate-x-12 translate-y-12" />
+                  </div>
 
                   {/* Category Header */}
-                  <motion.div
-                    className="text-center mb-8"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
+                  <div className="relative z-10 text-center mb-6">
                     <motion.div
-                      className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${getCategoryColor(category)} mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                      whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
+                      className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${getCategoryColor(category)} mb-4 shadow-lg`}
+                      whileHover={{ 
+                        scale: 1.1, 
+                        rotate: [0, -5, 5, 0],
+                        boxShadow: "0 20px 40px rgba(0,0,0,0.15)"
+                      }}
+                      transition={{ duration: 0.6 }}
                     >
                       {getCategoryIcon(category)}
                     </motion.div>
 
-                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
                       {category}
                     </h3>
 
-                    <p className="text-sm text-gray-500 mt-2">
-                      {categorySkills.length} {categorySkills.length === 1 ? 'skill' : 'skills'}
-                    </p>
-                  </motion.div>
+                    <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+                      <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-500" />
+                      <span>{categorySkills.length} {categorySkills.length === 1 ? 'skill' : 'skills'}</span>
+                      <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500" />
+                    </div>
+                  </div>
 
-                  {/* Skills Grid */}
-                  <div className="grid grid-cols-1 gap-4">
+                  {/* Skills List */}
+                  <div className="relative z-10 space-y-3">
                     {categorySkills.map((skill, index) => (
                       <motion.div
                         key={skill.name}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.4, delay: index * 0.1 }}
-                        className="group/skill relative"
+                        className="group/skill"
                         whileHover={{ scale: 1.02 }}
                       >
-                        {/* Skill card with gradient border */}
-                        <div className="relative p-4 rounded-2xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-white hover:to-gray-50 transition-all duration-300 border border-gray-200 hover:border-transparent hover:shadow-lg">
-                          {/* Hover glow effect */}
-                          <div
-                            className="absolute inset-0 rounded-2xl opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300"
-                            style={{
-                              boxShadow: `0 0 20px 2px ${category === 'Frontend' ? 'rgba(59, 130, 246, 0.2)' : category === 'Backend' ? 'rgba(168, 85, 247, 0.2)' : category === 'Database' ? 'rgba(34, 197, 94, 0.2)' : 'rgba(249, 115, 22, 0.2)'}`,
-                            }}
-                          />
+                        <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-gray-50 to-white hover:from-white hover:to-gray-50 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-md">
+                          
+                          {/* Skill Icon */}
+                          <motion.div
+                            className={`flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br ${getCategoryColor(skill.category)} flex items-center justify-center shadow-sm`}
+                            whileHover={{ rotate: 360 }}
+                            transition={{ duration: 0.8 }}
+                          >
+                            {React.cloneElement(skill.icon as React.ReactElement, {
+                              size: 18,
+                              className: "text-white"
+                            })}
+                          </motion.div>
 
-                          <div className="flex items-center gap-4 relative z-10">
-                            {/* Skill icon */}
-                            <motion.div
-                              className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${getCategoryColor(skill.category)} flex items-center justify-center shadow-md`}
-                              whileHover={{ rotate: 360, scale: 1.1 }}
-                              transition={{ duration: 0.6 }}
-                            >
-                              {React.cloneElement(skill.icon as React.ReactElement, {
-                                className: "text-white drop-shadow-sm"
-                              })}
-                            </motion.div>
-
-                            {/* Skill name */}
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-bold text-gray-800 text-lg group-hover/skill:text-transparent group-hover/skill:bg-clip-text group-hover/skill:bg-gradient-to-r group-hover/skill:from-blue-600 group-hover/skill:to-purple-600 transition-all duration-300">
-                                {skill.name}
-                              </h4>
-                              <p className="text-sm text-gray-500 mt-1 capitalize">
-                                {skill.category.toLowerCase()} technology
-                              </p>
-                            </div>
+                          {/* Skill Name */}
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold text-gray-800 text-sm group-hover/skill:text-transparent group-hover/skill:bg-clip-text group-hover/skill:bg-gradient-to-r group-hover/skill:from-blue-600 group-hover/skill:to-purple-600 transition-all duration-300 truncate">
+                              {skill.name}
+                            </h4>
                           </div>
+
+                          {/* Hover Indicator */}
+                          <motion.div
+                            className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300"
+                            whileHover={{ scale: 1.5 }}
+                          />
                         </div>
                       </motion.div>
                     ))}
                   </div>
+
+                  {/* Bottom Accent */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gray-200 to-transparent group-hover:via-blue-400 transition-all duration-500" />
                 </div>
               </motion.div>
             )
